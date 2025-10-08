@@ -89,7 +89,7 @@
     <repository>
         <id>central</id>
         <name>192.168.1.105-releases</name>
-        <url>http://192.168.1.105:8082/artifactory/libs-release</url>
+        <url>http://192.168.1.105:8082/artifactory/libs-snapshot-local</url>
     </repository>
 </distributionManagement>
 

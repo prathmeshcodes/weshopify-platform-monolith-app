@@ -7,7 +7,7 @@ pipeline{
         stage('pull the source code'){
             steps{
                 echo 'pulling the source code'
-                git branch: 'security', url: 'https://github.com/NarsiMyTeaching/weshopify-platform-monolith-app.git'
+                git branch: 'security', url: 'https://github.com/prathmeshcodes/weshopify-platform-monolith-app'
                 echo '==============================='
                 echo 'source code pulling completed'
                 echo '==============================='

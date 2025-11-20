@@ -13,36 +13,36 @@ pipeline{
                 echo '==============================='
             }
         }
-        stage('building the source code'){
-            steps{
-                echo 'starting the code build'
-                sh 'mvn clean deploy -DskipTests=true'
-            }
-        }
+      //   stage('building the source code'){
+      //       steps{
+      //           echo 'starting the code build'
+      //           sh 'mvn clean deploy -DskipTests=true'
+      //       }
+      //   }
 
-        stage('copying the docker and jfrog files to ansible'){
-            steps{
-                echo 'copying the docker and jfrog files'
-                sshagent(['Ansible-Machine']){
-                    sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
-                    sh 'scp Dockerfile ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
-                    sh 'scp docker-playbook.yml ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
+      //   stage('copying the docker and jfrog files to ansible'){
+      //       steps{
+      //           echo 'copying the docker and jfrog files'
+      //           sshagent(['Ansible-Machine']){
+      //               sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
+      //               sh 'scp Dockerfile ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
+      //               sh 'scp docker-playbook.yml ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
                     
-                    sh '''
-                     ssh -tt ansible-admin@172.31.0.173 << EOF
-                      ansible-playbook  ci-cd-files/docker-playbook.yml
-                     exit
-                     EOF
-                    '''
-                }
-            }
-        }//CI Completed
+      //               sh '''
+      //                ssh -tt ansible-admin@172.31.0.173 << EOF
+      //                 ansible-playbook  ci-cd-files/docker-playbook.yml
+      //                exit
+      //                EOF
+      //               '''
+      //           }
+      //       }
+      //   }//CI Completed
 
-        //CD will trigger
-        stage("trigger application deploy job"){
-          steps{
-              build job: 'weshopify-platform-app-continous-deployment'
-          }
-      }
+      //   //CD will trigger
+      //   stage("trigger application deploy job"){
+      //     steps{
+      //         build job: 'weshopify-platform-app-continous-deployment'
+      //     }
+      // }
     }
 }

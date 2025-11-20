@@ -13,12 +13,12 @@ pipeline{
                 echo '==============================='
             }
         }
-      //   stage('building the source code'){
-      //       steps{
-      //           echo 'starting the code build'
-      //           sh 'mvn clean deploy -DskipTests=true'
-      //       }
-      //   }
+        stage('building the source code'){
+            steps{
+                echo 'starting the code build'
+                sh 'mvn clean deploy -DskipTests=true'
+            }
+        }
 
       //   stage('copying the docker and jfrog files to ansible'){
       //       steps{

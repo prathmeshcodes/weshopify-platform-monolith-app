@@ -19,10 +19,10 @@
       shell: sh ./app-files/jfrog-server-conn.sh
 
     - name: docker image building
-      shell: echo admin | sudo -S docker build -f ./app-files/Dockerfile --tag prath3262/weshopify-7pm-app ./app-files/
+      shell: echo password | sudo -S docker build -f ./app-files/Dockerfile --tag prath3262/weshopify-7pm-app ./app-files/
 
     - name: push the image to the Container Registry(CR)
-      shell: echo admin | sudo -S docker push prath3262/weshopify-7pm-app
+      shell: echo password | sudo -S docker push prath3262/weshopify-7pm-app
    
    
    #- name: remove the local image

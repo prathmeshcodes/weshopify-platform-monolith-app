@@ -26,7 +26,7 @@ pipeline{
                 sshagent(['Ansible-Machine']){
                     sh 'scp jfrog-server-conn.sh ansbile-admin@192.168.0.132:/home/ansbile-admin/ci-cd-files'
                     sh 'scp Dockerfile ansbile-admin@192.168.0.132:/home/ansbile-admin/ci-cd-files'
-                    sh 'scp docker-playbook.yml ansbile-admin@192.168.0.131:/home/ansbile-admin/ci-cd-files'
+                    sh 'scp docker-playbook.yml ansbile-admin@192.168.0.132:/home/ansbile-admin/ci-cd-files'
                     
                     sh '''
                      ssh -tt ansbile-admin@192.168.0.131 << EOF

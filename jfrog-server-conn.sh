@@ -10,10 +10,10 @@ artifact=com/dsoft/$name/0.0.1-SNAPSHOT
 path=$server/$repo/$artifact
 echo $path
 
-build=$(curl -u "admin":"Adance123$" $path/maven-metadata.xml | grep '<value>' | head -1 | sed "s/.*<value>\([^<]*\)<\/value>.*/\1/")
+build=$(curl -u "admin":"PRat#12$" $path/maven-metadata.xml | grep '<value>' | head -1 | sed "s/.*<value>\([^<]*\)<\/value>.*/\1/")
 echo $build
 
-extension=$(curl -u "admin":"Adance123$" $path/maven-metadata.xml | grep '<extension>' | head -2 | sed "s/.*<extension>\([^<]*\)<\/extension>.*/\2/")
+extension=$(curl -u "admin":"PRat#12$" $path/maven-metadata.xml | grep '<extension>' | head -2 | sed "s/.*<extension>\([^<]*\)<\/extension>.*/\2/")
 echo $extension
 
 artifact_name=$name-$build.war

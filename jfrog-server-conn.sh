@@ -2,7 +2,7 @@ server=http://192.168.0.135:8082/artifactory
 repo=libs-snapshot-local
 
 userName=admin
-password=Adance123$
+password=PRat#12$
 
 # Maven artifact location
 name=we-shopify-platform

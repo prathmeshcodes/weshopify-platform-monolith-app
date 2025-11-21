@@ -4,18 +4,27 @@
 # COPY we-shopify-platform.war $WORKDIR
 # CMD [ "java","-jar","we-shopify-platform.war"]
 # use a concrete, supported image tag
-FROM openjdk:11-jdk-slim
+FROM eclipse-temurin:11-jdk
 
-# create app dir and set it as workdir
+LABEL maintainer="you@example.com"
+LABEL description="WeShopify Platform - packaged WAR runtime"
+
+# Create application directory and set it as workdir
 RUN mkdir -p /app
 WORKDIR /app
 
-# copy the built war from the build context (update path if different)
-# when building, run from the project root so target/we-shopify-platform.war exists
-COPY target/we-shopify-platform.war /app/we-shopify-platform.war
+# Copy the built WAR into the image.
+# Make sure your CI/CD creates: target/we-shopify-platform.war
+COPY we-shopify-platform.war /app/we-shopify-platform.war
 
+# Expose application port
 EXPOSE 8080
 
-# run the war
+# Optional healthcheck
+# HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+#   CMD curl -f http://localhost:8080/ || exit 1
+
+# Run the WAR
 CMD ["java", "-jar", "/app/we-shopify-platform.war"]
+
 

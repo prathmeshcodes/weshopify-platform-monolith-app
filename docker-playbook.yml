@@ -1,7 +1,7 @@
 - name: docker-machine-config
-  hosts: docker-machine
+  hosts: Docker-machine
   become: 'yes'
-  become_user: 'docker-admin'
+  become_user: 'vboxuser'
   tasks:
     - name: copy the docker file
       copy: src=Dockerfile dest=./app-files

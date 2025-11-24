@@ -1,7 +1,7 @@
 - name: k8s-master-machine-config
   hosts: k8s-master
   become: 'yes'
-  become_user: 'k8s-admin'
+  become_user: 'vboxuser'
   tasks:
     - name: copy the k8s db manifest files from anisble to k8s-master
       copy: src=./k8s-db-files dest=.

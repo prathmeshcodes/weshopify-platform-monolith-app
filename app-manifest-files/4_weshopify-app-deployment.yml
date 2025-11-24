@@ -36,7 +36,7 @@ spec:
            configMapKeyRef: 
             name: weshopify-app-config-map #config-map-name
             key: DB_SCHEMA_VALUE
-  replicas: 2
+  replicas: 1
   selector: 
    matchLabels: 
      app: weshopify-app

@@ -18,14 +18,14 @@ pipeline{
                     sh 'scp app-manifest-files/*.* ansbile-admin@192.168.0.132:/home/ansbile-admin/ci-cd-files/k8s-app-files'
                     sh 'scp k8s-deployment-playbook.yml ansbile-admin@192.168.0.132:/home/ansbile-admin/ci-cd-files'
                     
-                    // sh '''
-                    //   ssh -tt ansible-admin@172.31.0.173 << EOF
-                    //   ansible-playbook  ci-cd-files/k8s-deployment-playbook.yml
-                    //   rm -f ./ci-cd-files/k8s-db-files/*.*
-                    //   rm -f ./ci-cd-files/k8s-app-files/*.*
-                    //   exit
-                    //  EOF
-                    // '''
+                    sh '''
+                      ssh -tt ansbile-admin@192.168.0.132 << EOF
+                      ansible-playbook  ci-cd-files/k8s-deployment-playbook.yml
+                      rm -f ./ci-cd-files/k8s-db-files/*.*
+                      rm -f ./ci-cd-files/k8s-app-files/*.*
+                      exit
+                     EOF
+                    '''
                 }
             }
         }//CD is completed
